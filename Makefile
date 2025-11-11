@@ -7,7 +7,7 @@ all: build
 prepare:
 	@echo -e ":: $(GREEN) Preparing environment...$(NC)"
 	@echo -e ":: $(GREEN) Downloading go dependencies...$(NC)"
-	@poetry install \
+	@poetry install --with dev\
 		&& echo -e "==> $(BLUE)Successfully installed dependencies$(NC)" \
 		|| (echo -e "==> $(RED)Failed to install dependencies$(NC)" && exit 1)
 

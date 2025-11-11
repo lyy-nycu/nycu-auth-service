@@ -43,7 +43,7 @@ jobs:
 
       - name: Install Poetry
         run: |
-            pip install poetry --with dev
+            pip install poetry
 
       - name: Install dependencies
         run: make prepare
