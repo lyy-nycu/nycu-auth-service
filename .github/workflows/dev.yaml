@@ -1,0 +1,54 @@
+name: Dev auth service
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+        #   cache: 'poetry'
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        run: make prepare
+      
+      - name: Lint
+        run: make lint
+  Test:
+    needs: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+        #   cache: 'poetry'
+
+      - name: Install Poetry
+        run: |
+            pip install poetry
+
+      - name: Install dependencies
+        run: make prepare
+
+      - name: Run tests
+        run: make test
+
+    

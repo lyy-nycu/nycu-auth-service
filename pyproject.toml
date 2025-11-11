@@ -1,0 +1,21 @@
+[project]
+name = "nycu-auth-service"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "lyy-nycu",email = "lyy15@nycu.edu.tw"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ruff (>=0.14.4,<0.15.0)",
+    "mypy (>=1.18.2,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
